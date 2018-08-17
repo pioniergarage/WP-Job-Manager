@@ -36,6 +36,17 @@ global $post;
 			<?php wpjm_the_job_description(); ?>
 		</div>
 
+        <div>
+            <?php
+            // add document to job
+            global $post;
+            $document = get_post_meta( $post->ID, '_document', true );
+            if ( $document ) {
+                echo '<a href="' . esc_html( $document ) . '" target="_blank" class="button color-5 medium " style="border-radius: 2px;"><i class="fa fa-file"></i>Dokument</a>';
+            }
+            ?>
+        </div>
+
 		<?php if ( candidates_can_apply() ) : ?>
 			<?php get_job_manager_template( 'job-application.php' ); ?>
 		<?php endif; ?>

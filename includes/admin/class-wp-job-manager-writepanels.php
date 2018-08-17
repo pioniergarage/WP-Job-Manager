@@ -56,7 +56,6 @@ class WP_Job_Manager_Writepanels {
 			'_job_location'    => array(
 				'label'       => __( 'Location', 'wp-job-manager' ),
 				'placeholder' => __( 'e.g. "London"', 'wp-job-manager' ),
-				'description' => __( 'Leave this blank if the location is not important.', 'wp-job-manager' ),
 				'priority'    => 1,
 			),
 			'_application'     => array(
@@ -76,28 +75,12 @@ class WP_Job_Manager_Writepanels {
 				'placeholder' => '',
 				'priority'    => 4,
 			),
-			'_company_tagline' => array(
-				'label'       => __( 'Company Tagline', 'wp-job-manager' ),
-				'placeholder' => __( 'Brief description about the company', 'wp-job-manager' ),
-				'priority'    => 5,
-			),
-			'_company_twitter' => array(
-				'label'       => __( 'Company Twitter', 'wp-job-manager' ),
-				'placeholder' => '@yourcompany',
-				'priority'    => 6,
-			),
-			'_company_video'   => array(
-				'label'       => __( 'Company Video', 'wp-job-manager' ),
-				'placeholder' => __( 'URL to the company video', 'wp-job-manager' ),
-				'type'        => 'file',
-				'priority'    => 8,
-			),
-			'_filled'          => array(
-				'label'       => __( 'Position Filled', 'wp-job-manager' ),
-				'type'        => 'checkbox',
-				'priority'    => 9,
-				'description' => __( 'Filled listings will no longer accept applications.', 'wp-job-manager' ),
-			),
+            '_document' => array(
+                'label'       => __( 'Document', 'wp-job-manager' ),
+                'type'        => 'file',
+                'priority'    => 5,
+                'description' => __( 'The button gets integrated automatically by the plugin.', 'wp-job-manager' ),
+            )
 		);
 		if ( $current_user->has_cap( 'manage_job_listings' ) ) {
 			$fields['_featured']    = array(
