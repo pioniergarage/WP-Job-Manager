@@ -455,6 +455,18 @@ function job_manager_add_post_types( $types ) {
 add_filter( 'post_types_to_delete_with_user', 'job_manager_add_post_types', 10 );
 
 /**
+ * disable auto update for wp job manager
+ *
+ * @param $value
+ * @return mixed
+ */
+function disable_plugin_updates( $value ) {
+    unset( $value->response['wp-job-manager/wp-job-manager.php'] );
+    return $value;
+}
+add_filter( 'site_transient_update_plugins', 'disable_plugin_updates' );
+
+/**
  * Main instance of WP Job Manager.
  *
  * Returns the main instance of WP Job Manager to prevent the need to use globals.
